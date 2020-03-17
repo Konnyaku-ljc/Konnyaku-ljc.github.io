@@ -418,6 +418,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/14/%E9%A2%98%E8%A7%A3%20P2772%20%E3%80%90%E5%AF%BB%E6%89%BE%E5%B9%B3%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%9E%81%E5%A4%A7%E7%82%B9%E3%80%91/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/%E9%A2%98%E8%A7%A3%20P2772%20%E3%80%90%E5%AF%BB%E6%89%BE%E5%B9%B3%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%9E%81%E5%A4%A7%E7%82%B9%E3%80%91/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -528,6 +538,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -827,6 +841,32 @@
 
 
 
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: true,
+      appId: 'dhWLxOcbrdSbUhcNHBPo6ou2-gzGzoHsz',
+      appKey: 'OtTjj3ibFlPsM9LfaRzFKIL3',
+      placeholder: 'Just go go',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
 
 
 
