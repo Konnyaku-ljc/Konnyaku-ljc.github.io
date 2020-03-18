@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="玩空洞骑士的只有两种结局，要么弃坑，要么发疯      ——鲁迅 如果你觉得这句话有道理又想不起来是谁说的，那么就是我说的。  ——鲁迅 我没说过这句话。  ——鲁迅  感谢鲁迅大大的大力支持。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hollow Knight 剧情向瞎扯">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/Hollow%20Knight%20%E5%89%A7%E6%83%85%E5%90%91%E7%9E%8E%E6%89%AF/index.html">
+<meta property="og:site_name" content="Konnyaku-ljc&#39;s Blog">
+<meta property="og:description" content="玩空洞骑士的只有两种结局，要么弃坑，要么发疯      ——鲁迅 如果你觉得这句话有道理又想不起来是谁说的，那么就是我说的。  ——鲁迅 我没说过这句话。  ——鲁迅  感谢鲁迅大大的大力支持。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-17T17:10:07.120Z">
+<meta property="article:modified_time" content="2020-03-18T09:28:32.742Z">
+<meta property="article:author" content="Konnyaku_ljc">
+<meta property="article:tag" content="games">
+<meta property="article:tag" content="Metroidvania">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/18/Hollow Knight 剧情向瞎扯/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hollow Knight 剧情向瞎扯 | Konnyaku-ljc's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Konnyaku-ljc" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FF4500; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Konnyaku-ljc's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Metroidvania深度爱好者</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+
+    
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+
+    
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+
+    
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+
+    
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+
+    
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/Hollow%20Knight%20%E5%89%A7%E6%83%85%E5%90%91%E7%9E%8E%E6%89%AF/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Konnyaku_ljc"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/head.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Konnyaku-ljc's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hollow Knight 剧情向瞎扯
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-18 01:10:07 / 修改时间：17:28:32" itemprop="dateCreated datePublished" datetime="2020-03-18T01:10:07+08:00">2020-03-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/happy/" itemprop="url" rel="index"><span itemprop="name">happy!</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/18/Hollow%20Knight%20%E5%89%A7%E6%83%85%E5%90%91%E7%9E%8E%E6%89%AF/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/18/Hollow%20Knight%20%E5%89%A7%E6%83%85%E5%90%91%E7%9E%8E%E6%89%AF/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>玩空洞骑士的只有两种结局，要么弃坑，要么发疯      ——鲁迅</p>
+<p>如果你觉得这句话有道理又想不起来是谁说的，那么就是我说的。  ——鲁迅</p>
+<p>我没说过这句话。  ——鲁迅</p>
+</blockquote>
+<p>感谢鲁迅大大的大力支持。</p>
+<a id="more"></a>
+
+<h1 id="含大量剧透内容，谨慎观看"><a href="#含大量剧透内容，谨慎观看" class="headerlink" title="含大量剧透内容，谨慎观看"></a>含大量剧透内容，谨慎观看</h1><h3 id="前篇"><a href="#前篇" class="headerlink" title="前篇"></a>前篇</h3><p>在那遥远的地方，有一个地下的虫子王国，被世世代代称为——<strong>圣巢</strong></p>
+<p>有一天，光芒中诞生了一只大扑棱蛾子，散发着光的气息，这种宛如神明的存在，自然而然的被供奉、信仰了起来。这只大蛾子，叫做辐光。而她，创造出了<del>烦人的</del>蛾子一族。</p>
+<p>圣巢的人民一直过着幸福快乐的生活。<br><strong>until that day——</strong><br>一个名为沃姆的苍白的生灵来到了圣巢。圣巢的人民被沃姆身上散发出的苍白色的光芒所吸引，人民奉沃姆为王，沃姆也不负众望，带领圣巢的人民过上了幸福快乐的生活。<br>而且，由于沃姆的出现，圣巢人民的智力得到了极大的提升，他们建造城镇，修建城市，还形成了等级制度——贵族、平民和奴隶。<br>但是位于真菌荒地的螳螂村坚守阵地，与圣巢达成了协议——螳螂村帮助圣巢抵挡深巢的进犯，但是保持独立。</p>
+<p>久而久之，蛾子一族也开始崇拜沃姆，而他们的祖先——辐光，却被渐渐地遗忘了。。。<br>圣巢依旧繁华着，until that day——<br>辐光好歹也是从光中产生的，古神的名头不是吹的。圣巢的虫子开始在梦中看见辐光，在梦中沉沉的睡去，再也无法醒来。这场灾难，被称为瘟疫。<br>瘟疫开始肆虐，白王也开始思考解决办法。<br>白王与白色夫人进行了<strong>FBI WARNING</strong>，产下了一个卵，白王将它放入了深渊中，希望虚空能将卵中他们的子嗣改变，让他的子嗣也成为虚空，因为虚空没有自我的意识，虚空不会做梦，所以说虚空就不会被感染。</p>
+<blockquote>
+<p>插一句嘴：话说白后为什么要帮白王，注明空学家massbag说过：“这可能仅仅是为了满足她充沛的__。”</p>
+</blockquote>
+<p>然后白王就在深渊进行了一场选拔，我们不知道 选拔的机制是什么，有可能是往上爬，，也有可能是爬上去再选一个，我们不知道掉下来的是自己摔下来的还是被白王扔下来的，结果是——白王，选择了前辈。</p>
+<h3 id="前辈"><a href="#前辈" class="headerlink" title="前辈"></a>前辈</h3><p>前辈在白王手下开始了刻（chi）苦（zeng）训（gao）练（ji）</p>
+<p>经过白王的训练，前辈由和小骑士一样高变成了五个小骑士那么高！！！有很多人都有疑问——容器为什么要练习骨钉技艺？我觉得吧，可能仅仅是保证它的身体素质可以保持住封印，毕竟辐光也是不一般的货色。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/games/" rel="tag"><i class="fa fa-tag"></i> games</a>
+          
+            <a href="/tags/Metroidvania/" rel="tag"><i class="fa fa-tag"></i> Metroidvania</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/16/Ori%20and%20the%20build%20forest%E6%B8%B8%E7%8E%A9%E6%84%9F%E5%8F%97/" rel="next" title="Ori and the build forest游玩感受">
+                <i class="fa fa-chevron-left"></i> Ori and the build forest游玩感受
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/18/%E7%A9%BA%E5%AD%A6%E4%BA%BA%E7%89%A9%E6%9D%82%E8%AE%B0/" rel="prev" title="空学人物杂记">
+                空学人物杂记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Konnyaku_ljc"/>
+            
+              <p class="site-author-name" itemprop="name">Konnyaku_ljc</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#含大量剧透内容，谨慎观看"><span class="nav-number">1.</span> <span class="nav-text">含大量剧透内容，谨慎观看</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前篇"><span class="nav-number">1.0.1.</span> <span class="nav-text">前篇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前辈"><span class="nav-number">1.0.2.</span> <span class="nav-text">前辈</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Konnyaku_ljc</span>
+
+  
+
+  
+</div>
+
+
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+-->
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">Blog共18.2k字 | 禁止未经允许用于任何商业用途</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_lines.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: true,
+      appId: 'dhWLxOcbrdSbUhcNHBPo6ou2-gzGzoHsz',
+      appKey: 'OtTjj3ibFlPsM9LfaRzFKIL3',
+      placeholder: 'Just go go',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</html>
+<script src="/live2d-widget/autoload.js"></script>

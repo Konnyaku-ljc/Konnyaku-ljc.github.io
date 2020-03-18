@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="动态规划好题（洛谷网校来的，mrsrz又珂愛又强！）。强烈建议先把题面多看几遍。读完题后，我们能发现以下结论——">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题解 P6103 【[EER2]直接自然溢出啥事没有】">
+<meta property="og:url" content="http://yoursite.com/2020/03/14/%E9%A2%98%E8%A7%A3%20P6103%20%E3%80%90[EER2]%E7%9B%B4%E6%8E%A5%E8%87%AA%E7%84%B6%E6%BA%A2%E5%87%BA%E5%95%A5%E4%BA%8B%E6%B2%A1%E6%9C%89%E3%80%91/index.html">
+<meta property="og:site_name" content="Konnyaku-ljc&#39;s Blog">
+<meta property="og:description" content="动态规划好题（洛谷网校来的，mrsrz又珂愛又强！）。强烈建议先把题面多看几遍。读完题后，我们能发现以下结论——">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-14T11:47:57.480Z">
+<meta property="article:modified_time" content="2020-03-14T12:39:20.795Z">
+<meta property="article:author" content="Konnyaku_ljc">
+<meta property="article:tag" content="solutions">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/14/题解 P6103 【[EER2]直接自然溢出啥事没有】/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>题解 P6103 【[EER2]直接自然溢出啥事没有】 | Konnyaku-ljc's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/Konnyaku-ljc" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FF4500; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Konnyaku-ljc's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Metroidvania深度爱好者</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+
+    
+
+    <a href="/" rel="section">首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+
+    
+
+    <a href="/about/" rel="section">关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+
+    
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+
+    
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+
+    
+
+    <a href="/archives/" rel="section">归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/%E9%A2%98%E8%A7%A3%20P6103%20%E3%80%90%5BEER2%5D%E7%9B%B4%E6%8E%A5%E8%87%AA%E7%84%B6%E6%BA%A2%E5%87%BA%E5%95%A5%E4%BA%8B%E6%B2%A1%E6%9C%89%E3%80%91/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Konnyaku_ljc"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/head.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Konnyaku-ljc's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">题解 P6103 【[EER2]直接自然溢出啥事没有】
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-14 19:47:57 / 修改时间：20:39:20" itemprop="dateCreated datePublished" datetime="2020-03-14T19:47:57+08:00">2020-03-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/14/%E9%A2%98%E8%A7%A3%20P6103%20%E3%80%90%5BEER2%5D%E7%9B%B4%E6%8E%A5%E8%87%AA%E7%84%B6%E6%BA%A2%E5%87%BA%E5%95%A5%E4%BA%8B%E6%B2%A1%E6%9C%89%E3%80%91/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/%E9%A2%98%E8%A7%A3%20P6103%20%E3%80%90%5BEER2%5D%E7%9B%B4%E6%8E%A5%E8%87%AA%E7%84%B6%E6%BA%A2%E5%87%BA%E5%95%A5%E4%BA%8B%E6%B2%A1%E6%9C%89%E3%80%91/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.luogu.com.cn/problem/P6103" target="_blank" rel="noopener">动态规划好题</a>（洛谷网校来的，mrsrz又珂愛又强！）。<br>强烈建议先把题面多看几遍。读完题后，我们能发现以下结论——    </p>
+<a id="more"></a>
+
+<ul>
+<li>语句 $+$ 程序片段 $=$ 程序片段，程序片段只有这一种形式。  </li>
+<li>程序片段的长度 $+2=$ 语句块。    </li>
+<li><h4 id="语句块就是语句。"><a href="#语句块就是语句。" class="headerlink" title="语句块就是语句。"></a>语句块就是语句。</h4></li>
+<li>语句块的长度 $+2$ 或 $+4$ 是函数。     </li>
+<li><h4 id="函数的长度-2-还是函数，函数的长度-2-或不变都是值。"><a href="#函数的长度-2-还是函数，函数的长度-2-或不变都是值。" class="headerlink" title="函数的长度$+2$还是函数，函数的长度$+2$或不变都是值。"></a>函数的长度$+2$还是函数，函数的长度$+2$或不变都是值。</h4></li>
+<li>值的长度$+2$还是值，值的长度$+1=$语句。  </li>
+</ul>
+<p>加粗的两个提醒我们——  </p>
+<ul>
+<li>语句块是语句，但语句不是语句块。  </li>
+<li>函数都是值，但值不一定是函数。  </li>
+</ul>
+<p>所以我们可以由语句块向语句转移，但不能反过来，函数与值同理。<br>设$sen[N]$,$cod[N]$,$sens[N]$,$hs[N]$,$val[N]$分别代表语句,程序片段,语句块,函数,不是函数的值 。<br>函数总数就是$hs_i+val_i$<br>根据以上的6句<del>废话</del>写出以下转移方程<br> $$  sen_i = sens_i + hs_{i-1} + val_{i-1}  $$<br> $$ cod_i = \sum_{j=1}^icod_{i-j}sen_i  $$<br> $$ sens_i = cod_{i-2}  $$<br> $$ hs_i = hs_{i-2} + sens_{i-2} + sens_{i-4}$$<br> $$ val_i = hs_{i-2} + val_{i-2}$$</p>
+<p>现在程序片段的数量就是之前所有片段的与此片段之后的语句的乘积总和  </p>
+<p>别忘记初始化，长度为1时有一个语句“;”，长度为0是有一个程序片段“ ”。<br> 天真的提问——怎样取模？<br> ull最大值为$2^{64}-1$，所以，当数值大于$2^{64}-1$时自动取模，即“直接自然溢出啥事没有”（我太菜了没看出来）。取模点题qwq。  </p>
+<p> 代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll  unsigned long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line">ll n,sen[N],cod[N],sens[N],hs[N],val[N];</span><br><span class="line"><span class="comment">//分别为语句,程序片段,语句块,函数,不是函数的值 。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	sen[<span class="number">1</span>] = <span class="number">1</span> , cod[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//初始化，长度为1时有一个语句“;”</span></span><br><span class="line">	<span class="comment">//长度为0是有一个程序片段“ ” </span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++ )</span><br><span class="line">	&#123;</span><br><span class="line">		sens[i] = cod[i<span class="number">-2</span>];</span><br><span class="line">		hs[i] = hs[i<span class="number">-2</span>] + sens[i<span class="number">-2</span>] + sens[i<span class="number">-4</span>];</span><br><span class="line">		val[i] = hs[i<span class="number">-2</span>] + val[i<span class="number">-2</span>];</span><br><span class="line">		sen[i] += sens[i] + hs[i<span class="number">-1</span>] + val[i<span class="number">-1</span>];</span><br><span class="line">		<span class="comment">//sen必须在sens后更新</span></span><br><span class="line">		<span class="comment">//因为sen[1]=1，所以不是“=”而是“+=”。 </span></span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++ )</span><br><span class="line">		&#123;</span><br><span class="line">			cod[i] += cod[i-j] * sen[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cod[n];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EE Round 果然够 EE。蒟蒻在此EE为敬！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/solutions/" rel="tag"><i class="fa fa-tag"></i> solutions</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/14/%E9%A2%98%E8%A7%A3%20P4961%20%E3%80%90%E5%B0%8F%E5%9F%8B%E4%B8%8E%E6%89%AB%E9%9B%B7%E3%80%91/" rel="next" title="题解 P4961 【小埋与扫雷】">
+                <i class="fa fa-chevron-left"></i> 题解 P4961 【小埋与扫雷】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/14/%E9%A2%98%E8%A7%A3%20P2772%20%E3%80%90%E5%AF%BB%E6%89%BE%E5%B9%B3%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%9E%81%E5%A4%A7%E7%82%B9%E3%80%91/" rel="prev" title="题解 P2772 【寻找平面上的极大点】">
+                题解 P2772 【寻找平面上的极大点】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Konnyaku_ljc"/>
+            
+              <p class="site-author-name" itemprop="name">Konnyaku_ljc</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#语句块就是语句。"><span class="nav-number">1.</span> <span class="nav-text">语句块就是语句。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的长度-2-还是函数，函数的长度-2-或不变都是值。"><span class="nav-number">2.</span> <span class="nav-text">函数的长度$+2$还是函数，函数的长度$+2$或不变都是值。</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Konnyaku_ljc</span>
+
+  
+
+  
+</div>
+
+
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+-->
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">Blog共18.2k字 | 禁止未经允许用于任何商业用途</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/three/three.min.js"></script>
+
+  
+  <script src="/lib/three/three-waves.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_lines.min.js"></script>
+
+  
+  <script src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: true,
+      appId: 'dhWLxOcbrdSbUhcNHBPo6ou2-gzGzoHsz',
+      appKey: 'OtTjj3ibFlPsM9LfaRzFKIL3',
+      placeholder: 'Just go go',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+</html>
+<script src="/live2d-widget/autoload.js"></script>
